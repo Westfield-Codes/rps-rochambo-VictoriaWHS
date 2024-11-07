@@ -10,7 +10,6 @@ function main(){
     }
     findWinner(uChoice,cChoice);
 }
-//Need to test and see if correct, moving on for now//
 
 function userTurn(){
     let choice = prompt(" enter r,p, or s");
@@ -21,23 +20,30 @@ function userTurn(){
     return choice;
 }
 
-//havent tested but created by Ari so probally fine//
+
 
 function cpuTurn(){
     let choice = Math.floor(Math.random()*2);
     if (choice == 0) return "r";
-    if (choice == 1) return "p";
-    if (choice == 2) return "s";
+    else if (choice == 1) return "p";
+    else if (choice == 2) return "s";
 }
 
-//looks right, asked for help so should be correct//
 
 function findWinner(uChoice, cChoice){
+    alert(" finding winner ");
     let winner = "Undefined";
     if (uChoice == "r" ){
         if (cChoice =="s") winner = "player";
-        else winner = "computer";
+        else winner = "cpu";
     }
+     if (uChoice == "s" ){
+        if (cChoice =="p") winner = "player";
+        else winner = "cpu";
+    }
+        if (cChoice == "r") winner = "player";
+            else winner ="cpu";
+        alert ("winner is " + winner);
+
 }
 
-//Almost do done//
