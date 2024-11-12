@@ -1,3 +1,4 @@
+
 main();
 function main(){
     let uChoice = 0;
@@ -43,7 +44,7 @@ function findWinner(uChoice, cChoice){
     }
         if (cChoice == "r") winner = "player";
             else winner ="cpu";
-        alert ("winner is " + winner +);
+        alert ("winner is " + winner);
 
 }
 
