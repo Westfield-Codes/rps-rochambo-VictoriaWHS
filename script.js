@@ -44,7 +44,8 @@ function findWinner(uChoice, cChoice){
     }
         if (cChoice == "r") winner = "player";
             else winner ="cpu";
-        alert ("winner is " + winner);
+        alert ("You picked " + uChoice + " and I picked " + cChoice +". " + winner + " won.");
 
 }
+
 
