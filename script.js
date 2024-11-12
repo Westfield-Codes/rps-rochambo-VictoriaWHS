@@ -1,3 +1,4 @@
+
 main();
 function main(){
     let uChoice = 0;
@@ -15,7 +16,7 @@ function userTurn(){
     let choice = prompt(" enter r,p, or s");
     if (choice != "r" && choice != "p" && choice != "s"){
        alert("enter r,p, or s");
-       userTurn();
+       return userTurn();
     }
     return choice;
 }
@@ -31,7 +32,7 @@ function cpuTurn(){
 
 
 function findWinner(uChoice, cChoice){
-    alert(" finding winner ");
+     alert(" finding winner ");
     let winner = "Undefined";
     if (uChoice == "r" ){
         if (cChoice =="s") winner = "player";
