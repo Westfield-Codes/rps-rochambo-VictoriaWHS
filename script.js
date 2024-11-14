@@ -1,7 +1,7 @@
 
 main();
 
-var moves = ["r", "p", "s"];
+var choices = ["r", "p", "s"];
 
 function main(){
     let uChoice = 0;
@@ -16,7 +16,7 @@ function main(){
 
 function userTurn(){
     let choice = prompt(" enter r,p, or s");
-    if (!moves.includes(choice)){
+    if (!choices.includes(choice)){
        alert("enter r,p, or s");
        return userTurn();
     }
@@ -27,21 +27,19 @@ function userTurn(){
 
 function cpuTurn(){
     let choice = Math.floor(Math.random()*2);
-    alert("I choose "+ choice);
-    return moves[choice];
+    return choices[choice];
     
 }
 
 function findWinner(u, c){
-    let winArray=[
-        ["r","p","I"],["r","s","you"],
-        ["p","s","I"],["p","r","you"],
-        ["s","r","I"],["s","p","you"]];
+    let winArray=[["r","p","I"],["r","s","you"],["p","s","I"],["p","r","you"],["s","r","I"],["s","p","you"]];
         for (let i = 0; i< winArray.length; i++){
-            turns = u+c;
-            match = winArray[i][0]+[i][2];
+            if (winArray[i][0] == u && winArray[i][1]==c){
+                winner= winArray[i][2];
+
+            }
         }
-        return
+       
 }
 
 //turns =u+c
