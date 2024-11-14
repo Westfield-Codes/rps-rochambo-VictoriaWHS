@@ -7,7 +7,6 @@ function main(){
     let uChoice = 0;
     let cChoice= 0;
     while (uChoice == cChoice){
-        
         uChoice = userTurn();
         cChoice = cpuTurn();
         if (uChoice==cChoice) alert(" we both choose " + cChoice);
@@ -33,11 +32,16 @@ function cpuTurn(){
     
 }
 
-function findWinner(uChoice, cChoice){
+function findWinner(u, c){
     let winArray=[
         ["r","p","I"],["r","s","you"],
         ["p","s","I"],["p","r","you"],
         ["s","r","I"],["s","p","you"]];
+        for (let i = 0; i< winArray.length; i++){
+            turns = u+c;
+            match = winArray[i][0]+[i][2];
+        }
+        return
 }
 
 //turns =u+c
@@ -58,4 +62,3 @@ function findWinner(uChoice, cChoice){
     //        else winner ="cpu";
    //     alert ("You picked " + uChoice + " and I picked " + cChoice +". " + winner + " won.");
 
-}
