@@ -4,7 +4,7 @@ var score = [0,0];
 functionMain(){
     winner = 2
     round == setRounds;
-    if (winner <= rpsRound){
+    while (winner <= rpsRound){
         winner=rpsRound;
         score[winner]++
     }
