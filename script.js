@@ -2,7 +2,8 @@ main();
 
 function main(){
     let score = [0,0]
-    let winner = 3;
+    let winner = 2;
+    //or 3?//
     let rounds = setRounds();
     while (round <= rounds){
         winner = rpsRound();
@@ -15,7 +16,7 @@ function main(){
 
 function setRounds(){
     let rounds = propmt("How many rounds?");
-    if (rounds%2 ==0) alert("must be odd");
+    if (rounds % 2 ===0) alert("must be odd");
     //fix this line above //
     else return rounds;
 }
@@ -33,6 +34,7 @@ function rpsRound(){
     let win= players.indexOf(winner);
     return win;
 }
+
 function userTurn(){
     moves = ["r","p","s"];
     let choice = prompt("enter r p or s.");
@@ -41,8 +43,20 @@ function userTurn(){
     else alert("choose r p or s")
     return userTurn();
 }
+
 function cpuTurn(){
     let moves = ["r","p","s"];
     let choice = Math.floor(math.random()*2)+1;
     return moves[choice];
+}
+
+function findWinner(u, c){
+    let winArray=[["r","p","I"],["r","s","you"],["p","s","I"],["p","r","you"],["s","r","I"],["s","p","you"]];
+        for (let i = 0; i< winArray.length; i++){
+            if (winArray[i][0] == u && winArray[i][1]==c){
+                winner= winArray[i][2];
+
+            }
+        }
+       
 }
