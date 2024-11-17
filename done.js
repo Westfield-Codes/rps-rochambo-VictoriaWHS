@@ -2,7 +2,7 @@
 main();
 
 var choices = ["r", "p", "s"];
-
+//rps round actually. Not main//
 function main(){
     let uChoice = 0;
     let cChoice= 0;
