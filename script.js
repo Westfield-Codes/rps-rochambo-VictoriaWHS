@@ -2,50 +2,40 @@
 main();
 function main(){
     let uChoice = 0;
-    let cChoice= 0;
+    let cChoice = 0;
     while (uChoice == cChoice){
-        
         uChoice = userTurn();
         cChoice = cpuTurn();
-        if (uChoice==cChoice) alert(" we both choose " + cChoice);
+        if (uChoice == cChoice) alert ("we both choose " + cChoice);
     }
     findWinner(uChoice,cChoice);
 }
 
 function userTurn(){
-    let choice = prompt(" enter r,p, or s");
-    if (choice != "r" && choice != "p" && choice != "s"){
-       alert("enter r,p, or s");
-       return userTurn();
+    moves = ["r","p","s"];
+    let choice = prompt("enter r p or s.");
+    if (moves.includes(choice)){
+        console.log(choice);
+        return choice;
+    } 
+    else {
+        alert("choose r p or s")
+        return userTurn();
     }
-    return choice;
 }
-
-
 
 function cpuTurn(){
-    let choice = Math.floor(Math.random()*2);
-    if (choice == 0) return "r";
-    else if (choice == 1) return "p";
-    else if (choice == 2) return "s";
+    let moves = ["r","p","s"];
+    let choice = Math.floor(Math.random()*3);
+    return moves[choice];
 }
 
-
-function findWinner(uChoice, cChoice){
-     alert(" finding winner ");
-    let winner = "Undefined";
-    if (uChoice == "r" ){
-        if (cChoice =="s") winner = "player";
-        else winner = "cpu";
-    }
-     if (uChoice == "s" ){
-        if (cChoice =="p") winner = "player";
-        else winner = "cpu";
-    }
-        if (cChoice == "r") winner = "player";
-            else winner ="cpu";
-        alert ("You picked " + uChoice + " and I picked " + cChoice +". " + winner + " won.");
-
+function findWinner(u, c){
+    let winArray=[["r","p","I"],["r","s","you"],["p","s","I"],["p","r","you"],["s","r","I"],["s","p","you"]];
+        for (let i = 0; i< winArray.length; i++){
+            if (winArray[i][0] == u && winArray[i][1]==c){
+                winner= winArray[i][2];
+            }
+        } 
+    alert(" you picked " + u + " and I picked " + c + " the winner is " + winner);
 }
-
-
