@@ -3,7 +3,6 @@ main();
 function main(){
     let score = [0,0]
     let winner = 2;
-    //or 3?//
     let rounds = setRounds();
     while (round <= rounds){
         winner = rpsRound();
@@ -15,9 +14,8 @@ function main(){
 }
 
 function setRounds(){
-    let rounds = propmt("How many rounds?");
+    let rounds = prompt("How many rounds?");
     if (rounds % 2 ===0) alert("must be odd");
-    //fix this line above //
     else return rounds;
 }
 function rpsRound(){
@@ -46,7 +44,7 @@ function userTurn(){
 
 function cpuTurn(){
     let moves = ["r","p","s"];
-    let choice = Math.floor(math.random()*2)+1;
+    let choice = Math.floor(math.random()*3);
     return moves[choice];
 }
 
