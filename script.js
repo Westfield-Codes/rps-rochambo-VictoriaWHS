@@ -6,9 +6,9 @@ function main(){
     let round = 1;
     let rounds = setRounds();
     while (round <= rounds){
-        winner = rpsRound();
+        winner = rpsRound(round);
         score[winner]++;
-        round++
+        round++;
     }
     alert("You have " + score[0] + " and I have"+  score[1]);
     if (score[0]>score[1]) alert("You win!");
@@ -22,28 +22,32 @@ function setRounds(){
         return setRounds();
     }
     else return rounds;
+    //working//
 }
-function rpsRound(){
+function rpsRound(round){
     let uChoice = 0;
     let cChoice = 0;
     while (uChoice == cChoice){
-        uChoice= userTurn();
+        uChoice= userTurn(round);
         cChoice= cpuTurn();
-        if (uChoice == cChoice) alert ("we both choose " + cChoice);
-        else return rpsRound();
+        if (uChoice == cChoice) {
+            alert ("we both choose " + cChoice);
+        }
     }
-    let winner = findWinner(c,u);
-    let players = ["you","i"];
+    let winner = findWinner(uChoice,cChoice);
+    let players = ["you","I"];
     let win = players.indexOf(winner);
     return win;
 }
 
-function userTurn(){
+function userTurn(round){
     moves = ["r","p","s"];
     let choice = prompt("enter r p or s.");
-    if (moves.includes(choice)) return choice;
+    if (moves.includes(choice)) {
+         return choice;
+    }
     else {
-        alert("choose r p or s it is round " + rounds)
+        alert("choose r p or s it is round " + round);
         return userTurn();
     }
 }
@@ -52,16 +56,18 @@ function cpuTurn(){
     let moves = ["r","p","s"];
     let choice = Math.floor(Math.random()*3);
     return moves[choice];
+    //works//
 }
 
-function findWinner(u, c){
+function findWinner(u,c){
+    let winner = " ";
     let winArray=[["r","p","I"],["r","s","you"],["p","s","I"],["p","r","you"],["s","r","I"],["s","p","you"]];
         for (let i = 0; i< winArray.length; i++){
             if (winArray[i][0] == u && winArray[i][1]==c){
                 winner= winArray[i][2];
 
             }
-            alert(" got to find winner will write all later");
         }
-
+    alert("You choose " + u + " and I choose " + c + winner + " win!");
+    return winner;
 }
