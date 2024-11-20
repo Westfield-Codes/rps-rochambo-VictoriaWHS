@@ -68,6 +68,6 @@ function findWinner(u,c){
 
             }
         }
-    alert("You choose " + u + " and I choose " + c + winner + " win!");
+    alert("You choose " + u + " and I choose " + c + " " + winner + " win!");
     return winner;
 }
